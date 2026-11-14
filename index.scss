@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+// SCSS Variables
+$background-color: #0f172a;
+$text-color: #f8fafc;
+$primary-color: #38bdf8;
+$secondary-color: #94a3b8;
+$border-color: #334155;
+$card-background: rgba(30, 41, 59, 0.7);
+$accent-color: #6366f1;
+$success-text: #cbd5e1;
+$white: #ffffff;
+
+// Global Styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+  background-color: $background-color;
+  color: $text-color;
+  min-height: 100vh;
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+}
+
+// Header
+header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.currency-symbol {
+  color: $primary-color;
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.main-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: $white;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.sub-title {
+  color: $secondary-color;
+  font-size: 1rem;
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+// Dashboard
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 1.5rem;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Cards
+.glass-card {
+  background: $card-background;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+  margin-bottom: 1.5rem;
+
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+    color: #f1f5f9;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+
+// Form
+.form-group {
+  margin-bottom: 1rem;
+
+  label {
+    display: block;
+    font-size: 0.85rem;
+    color: $secondary-color;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+  }
+}
+
+.date-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.75rem;
+}
+
+// Inputs
+input,
+select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: $background-color;
+  border: 1px solid $border-color;
+  border-radius: 10px;
+  color: $white;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.2s ease;
+
+  &:focus {
+    border-color: $accent-color;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+  }
+}
+
+// Submit Button
+.btn-submit {
+  width: 100%;
+  padding: 0.85rem;
+  margin-top: 1rem;
+  background: linear-gradient(
+    135deg,
+    #6366f1 0%,
+    #4f46e5 100%
+  );
+  color: $white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+// Prediction Result
+.result-card {
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.25) 0%,
+    rgba(236, 72, 153, 0.25) 50%,
+    rgba(56, 189, 248, 0.25) 100%
+  );
+  border: 1.5px solid rgba(244, 114, 182, 0.4);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  text-align: center;
+  box-shadow:
+    0 10px 30px -5px rgba(236, 72, 153, 0.3),
+    0 0 20px rgba(99, 102, 241, 0.2);
+}
+
+.result-badge {
+  font-size: 0.85rem;
+  color: #f472b6;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.result-value {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: $primary-color;
+  margin: 0.3rem 0 1rem;
+}
+
+.conversion-detail {
+  font-size: 0.95rem;
+  color: #e2e8f0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 0.85rem;
+  font-weight: 500;
+}
+
+// Error Message
+.error {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #f87171;
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+}
+
+// Prediction History Table
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+}
+
+th {
+  text-align: left;
+  padding: 0.75rem;
+  font-size: 0.8rem;
+  color: #64748b;
+  text-transform: uppercase;
+  border-bottom: 1px solid $border-color;
+}
+
+td {
+  padding: 0.75rem;
+  font-size: 0.9rem;
+  color: $success-text;
+  border-bottom: 1px solid #1e293b;
+}
+
+tr {
+  &:hover {
+    td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+  }
+}
